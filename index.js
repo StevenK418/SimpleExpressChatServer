@@ -1,27 +1,23 @@
-
-
 const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
-//const io = require('socket.io')(http);
 
-
-const cors = require('cors');
-//Add CORS
-var corsOptions = {
-    origin: '*',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
-  const io = require("socket.io")(http, {
-    cors: {
-      origin: "*",
-      methods: ["PUT", "GET", "POST", "DELETE", "OPTIONS"],
-      credentials: false
-    }
-});
-    // transports: ['websocket']
-  //Pass in the options and call CORS
-  app.use(cors(corsOptions));
+// const cors = require('cors');
+// //Add CORS
+// var corsOptions = {
+//     origin: '*',
+//     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+//   }
+//   const io = require("socket.io")(http, {
+//     cors: {
+//       origin: "*",
+//       methods: ["PUT", "GET", "POST", "DELETE", "OPTIONS"],
+//       credentials: false
+//     }
+// });
+//     // transports: ['websocket']
+//   //Pass in the options and call CORS
+//   app.use(cors(corsOptions));
 
 io.on('connection', (socket) => {
     socket.on('join', function(data){
