@@ -39,6 +39,6 @@ io.on('connection', (socket) => {
 });
 
 const PORT = 8081;
-http.listen(PORT, () => {
+http.listen(process.env.PORT || PORT, () => {
   console.log(`listening on *:${PORT}`);
 });
